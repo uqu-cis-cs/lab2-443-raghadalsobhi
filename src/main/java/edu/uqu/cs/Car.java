@@ -21,7 +21,9 @@ public class Car{
      * private dataType name;
      *
      */
-
+    private String mode1;
+    private boolean inOutGarage;
+ 
     /************ Part 2 **************/
     /**
      * Define a default constructor and set 
@@ -33,6 +35,12 @@ public class Car{
      *      //body
      * }
      */
+    public Car()
+    {
+        inOutGarage=false;
+        mode1="";
+       
+    }
 
     /************ Part 3 **************/
     /**
@@ -43,6 +51,15 @@ public class Car{
      *      return this.InstanceVariableName;
      * }
      */
+    public String getMode1()
+    {
+return mode1;
+    }
+    public String getInOutGarage()
+    {
+return inOutGarage;
+    }
+
 
 
     /************ Part 4 **************/
@@ -54,6 +71,12 @@ public class Car{
      * }
      *
      */
+    public void setMode1(string m){
+     mode1=m;
+    }
+    public void setInOutGarage(boolean inOutGarage ){
+this.inOutGarage=inOutGarage;
+    }
 
 
     /************ Part 5 **************/
@@ -63,6 +86,12 @@ public class Car{
      * moveCarIn() to set the inOutGarage flag to true;
      *
      */
+    public void moveCarOut(){
+        inOutGarage=false;
+    }
+    public void moveCarIn(){
+        inOutGarage=true;
+    }
 
 
 
