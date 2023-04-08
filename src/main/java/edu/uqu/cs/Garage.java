@@ -9,6 +9,8 @@ package edu.uqu.cs;
 */
 import java.util.Scanner;
 
+import javax.swing.plaf.synth.SynthOptionPaneUI;
+
 public class Garage{
 
     /************ Part 1 **************/
@@ -21,6 +23,9 @@ public class Garage{
      * private classType [] varName = new classType[size];
      *
      */
+    private Car[] allCars=new Car[3];
+    
+    
 
     /************ Part 2 **************/
     /**
@@ -31,6 +36,9 @@ public class Garage{
      * public dataType varName= value;
      *
      */
+    public static int countCars=0; {
+        
+    }
 
     /************ Part 3 **************/
     /**
@@ -45,6 +53,11 @@ public class Garage{
      *     }
      *}
      */
+    public Garage(){
+       for(int i=0;i<allCars.length;i++) {
+        allCars[i]=new Car();
+       }
+    }
 
     /************ Part 4 **************/
     /**
@@ -59,6 +72,25 @@ public class Garage{
      * Syntax:
      * public void methodName(String m)
      */
+    public void addCar(String mode1){
+        boolean found=false;
+        for(int i =0;i<countCars;i++){
+            if(allCars[i].getMode1().equals(mode1)){
+                found=true;
+                allCars[i].moveCarIn();
+            }
+        }
+        if(!found){
+            if(countCars<allCars.length){
+                Car c=new Car();
+                c.setMode1(mode1);
+                allCars[countCars].moveCarIn();
+                countCars++;
+            }else{
+                System.out.println("Full garage");
+            }
+        }
+    }
 
 
     /************ Part 5 **************/
@@ -71,6 +103,13 @@ public class Garage{
      * public void methodName(String m)
      *
      */
+    public void moveOut(String mode1){
+        for(int i=0;i<countCars;i++){
+            if(allCars[i].getMode1().equals(mode1)){
+                allCars[i].moveCarOut();
+            }
+        }
+    }
 
 
 
@@ -84,6 +123,14 @@ public class Garage{
      * public void methodName(String m)
      *
      */
+     public void moveIn(String mode1){
+        for(int i=0;i<countCars;i++){
+            if(allCars[i].getMode1().equals(mode1)){
+                allCars[i].moveCarIn();
+            }
+        }
+    }
+
 
 
     /************ Part 7 **************/
@@ -95,6 +142,14 @@ public class Garage{
      * public void methodName(String m)
      *
      */
+    public void listCars(){
+        System.out.println("all the cars in the garage;");
+        for(int i=0;i<countCars;i++){
+            if(allCars[i].getInOutGarage())
+            System.out.println("car"+(i+1)+": "+allCars[i].getMode1());
+        }
+System.out.println();
+    }
 
 
 
